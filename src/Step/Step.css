@@ -1,0 +1,32 @@
+.step {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  gap: 15px;
+}
+
+.step-indicator {
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  border: 1px solid hsl(0, 0%, 100%);
+  border-radius: 50%;
+  color: hsl(0, 0%, 100%);
+}
+
+.step-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.step-header {
+  font-size: 13px;
+  color: hsl(229, 24%, 87%);
+}
+
+.step-chapter {
+  font-size: 14px;
+  font-weight: 700;
+  color: hsl(0, 0%, 100%);
+}
