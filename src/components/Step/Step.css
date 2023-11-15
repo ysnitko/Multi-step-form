@@ -12,6 +12,7 @@
   border: 1px solid hsl(0, 0%, 100%);
   border-radius: 50%;
   color: hsl(0, 0%, 100%);
+  font-weight: 500;
 }
 
 .step-label {

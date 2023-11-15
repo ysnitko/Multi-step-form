@@ -1,15 +1,13 @@
-import React from "react";
-import Sidebar from "./Sidebar/Sidebar";
-import PersonalInfo from "./PersonalInfo/PersonalInfo";
-
-import "./App.css";
+import React from 'react';
+import Sidebar from './components/Sidebar/Sidebar';
+import Form from './components/Form/Form';
+import './App.css';
 
 function App() {
   return (
     <div className="main-container">
       <Sidebar />
-
-      <PersonalInfo />
+      <Form />
     </div>
   );
 }

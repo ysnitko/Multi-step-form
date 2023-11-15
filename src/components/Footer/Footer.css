@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.next-btn {
+  padding: 15px 25px;
+  border: none;
+  border-radius: 8px;
+  background-color: hsl(213, 96%, 18%);
+  color: hsl(0, 0%, 100%);
+  font-weight: 500;
+}
+
+.back-btn {
+  border: none;
+  background: none;
+  color: hsl(231, 11%, 63%);
+  font-weight: 500;
+}
