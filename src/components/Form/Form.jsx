@@ -3,10 +3,11 @@ import React from "react";
 import PersonalInfo from "../PersonalInfo/PersonalInfo";
 import "./Form.css";
 
-const Form = () => {
+const Form = ({setStep}) => {
   return (
     <div className="form">
-      <PersonalInfo />
+      <PersonalInfo setStep={setStep}/>
+      
     </div>
   );
 };

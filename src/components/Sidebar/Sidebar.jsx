@@ -3,16 +3,17 @@ import { steps } from "../../constants";
 import Step from "../Step/Step";
 import "./Sidebar.css";
 
-const Sidebar = () => {
+const Sidebar = ({step}) => {
   return (
     <div className="sidebar-container">
-      {steps.map((item, index) => {
+      {steps.map((item) => {
         return (
           <Step
             key={item.step}
             stepNum={item.step}
             stepLabel={item.chapter}
             stepHeader={item.stepHeader}
+            step = {item.step}
           />
         );
       })}

@@ -2,39 +2,34 @@ import React, { useRef, useState } from "react";
 import Footer from "../Footer/Footer";
 import "./PersonalInfo.css";
 
-const PersonalInfo = () => {
+const PersonalInfo = ({setStep}) => {
   const [isEmptyField, setIsEmptyField] = useState("");
   const [nameField, setNameField] = useState(null);
   const [emailField, setEmailField] = useState(null);
   const [phoneField, setPhoneField] = useState(null);
-  const nameRef = useRef(null);
-  const mailRef = useRef(null);
-  const phoneRef = useRef(null);
-
-  const outlineError = "outline:' 1px solid hsl(354, 84%, 57%)'";
+  const nameRef = useRef('');
+  const mailRef = useRef('');
+  const phoneRef = useRef('');
+  setStep(1)
 
   const handleDataInput = (event) => {
     const targetField = event.target.name;
     if (targetField === "fnameField") {
       setNameField(nameRef.current.value);
+      setIsEmptyField("");
+
     }
 
     if (targetField === "emailField") {
       setEmailField(mailRef.current.value);
+      setIsEmptyField("");
+
     }
     if (targetField === "phoneField") {
       setPhoneField(phoneRef.current.value);
-    }
-  };
+      setIsEmptyField("");
 
-  const emptyField = (field) => {
-    console.log(nameField);
-    console.log(emailField);
-    console.log(phoneField);
-    if (field === "") {
-      setIsEmptyField(field);
     }
-    return isEmptyField;
   };
 
   const handleBtnClick = (event) => {
@@ -42,9 +37,6 @@ const PersonalInfo = () => {
     handleDataInput({ target: nameRef.current });
     handleDataInput({ target: mailRef.current });
     handleDataInput({ target: phoneRef.current });
-    emptyField(nameField);
-    emptyField(emailField);
-    emptyField(phoneField);
   };
 
   return (
@@ -63,17 +55,21 @@ const PersonalInfo = () => {
             {isEmptyField === nameField
               ? (
                   <span className="error-message">This field is required</span>
-                ) && { outlineError }
+                ) 
               : ""}
           </div>
 
           <input
             type="text"
             name="fnameField"
-            style={{ outlineError } || ""}
             id="fname"
+            style={{
+              outline: isEmptyField === nameField ? "1px solid hsl(354, 84%, 57%)" : "none"
+            }}
+
             placeholder="e.g. Stephen King"
             ref={nameRef}
+            onChange={handleDataInput}
           />
         </label>
 
@@ -90,9 +86,14 @@ const PersonalInfo = () => {
           <input
             type="email"
             name="emailField"
+            style={{
+              outline: isEmptyField === emailField ? "1px solid hsl(354, 84%, 57%)" : "none"
+            }}
+
             id="e-mail"
             placeholder="e.g stephenking@lorem.com"
             ref={mailRef}
+            onChange={handleDataInput}
           />
         </label>
 
@@ -109,12 +110,16 @@ const PersonalInfo = () => {
           <input
             type="tel"
             id="phonenum"
+            style={{
+              outline: isEmptyField === phoneField ? "1px solid hsl(354, 84%, 57%)" : "none"
+            }}
             name="phoneField"
             placeholder="e.g. +1 234 567 890"
             ref={phoneRef}
+            onChange={handleDataInput}
           />
         </label>
-      </div>
+      </div>  
 
       <Footer handleBtnClick={handleBtnClick} />
     </form>
