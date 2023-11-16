@@ -1,8 +1,9 @@
 .personal-info-form {
   display: flex;
   flex-direction: column;
-  padding: 30px 100px 10px 100px;
-  gap: 42px;
+  padding: 40px 92px 22px 92px;
+  gap: 40px;
+  margin-bottom: 90px;
 }
 
 h1 {

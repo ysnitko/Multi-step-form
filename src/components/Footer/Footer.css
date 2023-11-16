@@ -1,7 +1,8 @@
 .footer {
   display: flex;
   justify-content: space-between;
-  margin-top: 25px;
+  margin-top: 45px;
+  padding: 0px 92px;
 }
 
 .next-btn {
@@ -18,4 +19,9 @@
   background: none;
   color: hsl(231, 11%, 63%);
   font-weight: 500;
+}
+
+.back-btn:hover {
+  color: hsl(213, 96%, 18%);
+  outline: none;
 }

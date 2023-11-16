@@ -1,0 +1,155 @@
+.selected-plan-form {
+  display: flex;
+  flex-direction: column;
+  padding: 35px 92px 22px 92px;
+  gap: 42px;
+  margin-bottom: 110px;
+}
+
+h1 {
+  font-size: 32px;
+  color: hsl(213, 96%, 18%);
+}
+
+.selected-plan-requirements {
+  color: hsl(231, 11%, 63%);
+  font-weight: 00;
+  font-size: 17px;
+  letter-spacing: -0.5px;
+  opacity: 0.8;
+}
+
+.selected-plan-header {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  gap: 10px;
+}
+
+.select-plan-section {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(3, 135px);
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: px;
+}
+
+.plan {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: baseline;
+  height: 160px;
+  padding: 15px;
+  gap: 4px;
+  border-radius: 8px;
+  border: 1px solid hsl(229, 24%, 87%);
+  background-color: hsl(029, 0%, 100%);
+}
+
+.plan-type {
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+}
+
+.plan-cost {
+  font-size: 14px;
+  font-weight: 500;
+  color: hsl(231, 11%, 63%);
+}
+
+.arcade {
+  background: url(../../assets/images/icon-arcade.svg) no-repeat 15% 16%;
+}
+
+.advanced {
+  background: url(../../assets/images/icon-advanced.svg) no-repeat 15% 16%;
+}
+
+.pro {
+  background: url(../../assets/images/icon-pro.svg) no-repeat 15% 16%;
+}
+
+.plan:focus {
+  outline: 1px solid hsl(213, 96%, 18%);
+}
+
+.plan:hover {
+  outline: 1px solid hsl(213, 96%, 18%);
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsl(213, 96%, 18%);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 12px;
+  width: 12px;
+  left: 4px;
+  bottom: 4px;
+  background-color: hsl(029, 0%, 100%);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.switch {
+  width: 38px;
+  position: relative;
+  display: inline-block;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+input:checked + .slider {
+  background-color: hsl(213, 96%, 18%);
+}
+
+input:checked + .slider::before {
+  background-color: hsl(029, 0%, 100%);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(18px);
+  -ms-transform: translateX(18px);
+  transform: translateX(18px);
+}
+
+.slider.round {
+  width: 38px;
+  height: 20px;
+  border-radius: 15px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.switch-plan-period {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  margin-top: -10px;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: hsl(213, 96%, 18%);
+  background-color: hsl(231, 100%, 99%);
+}
