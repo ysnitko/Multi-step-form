@@ -8,7 +8,7 @@ const SelectPlan = ({ setStep }) => {
   }, [setStep]);
 
   return (
-    <form className="selected-plan-form" action="">
+    <div className="selected-plan-form">
       <div className="selected-plan-header">
         <h1 className="title-chapter">Select your plan</h1>
         <p className="selected-plan-requirements">
@@ -37,7 +37,7 @@ const SelectPlan = ({ setStep }) => {
         </label>
         <span>Yearly</span>
       </div>
-    </form>
+    </div>
   );
 };
 

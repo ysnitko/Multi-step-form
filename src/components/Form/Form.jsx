@@ -1,63 +1,76 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import Footer from "../Footer/Footer";
 import PersonalInfo from "../PersonalInfo/PersonalInfo";
 import SelectPlan from "../SelectPlan/SelectPlan";
 import "./Form.css";
 
-const Form = ({ setStep, step, isDisabled, setIsDisabled }) => {
-  const [isEmptyField, setIsEmptyField] = useState("");
-  // const [nameField, setNameField] = useState(null);
-  // const [emailField, setEmailField] = useState(null);
-  // const [phoneField, setPhoneField] = useState(null);
-  const nameRef = useRef(null);
-  const mailRef = useRef(null);
-  const phoneRef = useRef(null);
+const Form = ({
+  setStep,
+  step,
+  isDisabled,
+  setIsDisabled,
+  nameField,
+  emailField,
+  phoneField,
+  setNameField,
+  setEmailField,
+  setPhoneField,
+}) => {
+  const nameRef = useRef("");
+  const mailRef = useRef("");
+  const phoneRef = useRef("");
 
-  // const handleDataInput = (event) => {
-  //   const targetField = event.target.name;
-  //   if (targetField === "fnameField") {
-  //     setNameField(nameRef.current.value);
-  //     console.log(nameField);
-  //     // setIsEmptyField("");
-  //   }
-  //   if (targetField === "emailField") {
-  //     setEmailField(mailRef.current.value);
-  //     // setIsEmptyField("");
-  //   }
-  //   if (targetField === "phoneField") {
-  //     setPhoneField(phoneRef.current.value);
-  //     // setIsEmptyField("");
-  //   }
-  // };
-
-  const validateForm = () => {
-
-    if ( nameRef.current.value === "" || mailRef.current.value === "" || phoneRef.current.value === "") {
-      setIsDisabled(true);
-    } else {
-      setIsDisabled(false);
-      setStep((prev) => prev + 1);
+  const handleDataInput = (event) => {
+    const targetField = event.target.name;
+    if (targetField === "fnameField") {
+      setNameField(nameRef.current.value);
+      console.log(nameField);
+    }
+    if (targetField === "emailField") {
+      setEmailField(mailRef.current.value);
+      console.log(emailField);
+    }
+    if (targetField === "phoneField") {
+      setPhoneField(phoneRef.current.value);
+      console.log(phoneField);
     }
   };
 
+  const validateForm = () => {
+    if (
+      nameRef.current.value === "" ||
+      mailRef.current.value === "" ||
+      phoneRef.current.value === ""
+    ) {
+      setIsDisabled(true);
+    } else {
+      setIsDisabled(false);
+      setStep(step + 1);
+    }
+    console.log(isDisabled);
+  };
+
   const handleBtnClick = (event) => {
-    event.preventDefault()
-    validateForm()
+    event.preventDefault();
+    validateForm();
+  };
+
+  const handleBackBtn = () => {
+    setStep(step - 1);
   };
 
   return (
-    <div className="form">
+    <form className="form-container" action="">
       {step === 1 && (
         <PersonalInfo
           setStep={setStep}
-          isEmptyField={isEmptyField}
-          // nameField={nameField}
-          // emailField={emailField}
-          // phoneField={phoneField}
+          nameField={nameField}
+          emailField={emailField}
+          phoneField={phoneField}
           mailRef={mailRef}
           nameRef={nameRef}
           phoneRef={phoneRef}
-          // handleDataInput={handleDataInput}
+          handleDataInput={handleDataInput}
         />
       )}
 
@@ -67,8 +80,9 @@ const Form = ({ setStep, step, isDisabled, setIsDisabled }) => {
         step={step}
         setStep={setStep}
         isDisabled={isDisabled}
+        handleBackBtn={handleBackBtn}
       />
-    </div>
+    </form>
   );
 };
 

@@ -1,10 +1,13 @@
 import React from "react";
 import "./Footer.css";
 
-const Footer = ({ handleBtnClick, step, setStep, isDisabled }) => {
-  const handleBackBtn = () => {
-    setStep((prev) => prev - 1);
-  };
+const Footer = ({
+  handleBtnClick,
+  step,
+  setStep,
+  isDisabled,
+  handleBackBtn,
+}) => {
   return (
     <div className="footer">
       <button
@@ -17,9 +20,9 @@ const Footer = ({ handleBtnClick, step, setStep, isDisabled }) => {
       </button>
 
       <button
-        type="button"
+        type="submit"
         className="next-btn"
-        disabled={isDisabled}
+        // disabled={isDisabled}
         onClick={handleBtnClick}
       >
         Next Step

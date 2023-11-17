@@ -6,6 +6,9 @@ import "./App.css";
 const App = () => {
   const [step, setStep] = useState(1);
   const [isDisabled, setIsDisabled] = useState(false);
+  const [nameField, setNameField] = useState("");
+  const [emailField, setEmailField] = useState("");
+  const [phoneField, setPhoneField] = useState("");
   return (
     <div className="main-container">
       <Sidebar step={step} />
@@ -14,6 +17,12 @@ const App = () => {
         step={step}
         setIsDisabled={setIsDisabled}
         isDisabled={isDisabled}
+        nameField={nameField}
+        emailField={emailField}
+        phoneField={phoneField}
+        setNameField={setNameField}
+        setEmailField={setEmailField}
+        setPhoneField={setPhoneField}
       />
     </div>
   );
