@@ -3,17 +3,16 @@ import React from "react";
 import "./PersonalInfo.css";
 
 const PersonalInfo = ({
-  setStep,
   nameField,
   emailField,
   phoneField,
-  mailRef,
-  phoneRef,
-  nameRef,
-  handleDataInput,
+  handleDataName,
+  handleDataMail,
+  handleDataPhone, 
+  isEmpty
+  
 }) => {
   return (
-    // <form className="personal-info-form" action="">
     <div className="personal-info-form">
       <div className="personal-info-header">
         <h1 className="title-chapter">Personal info</h1>
@@ -26,7 +25,7 @@ const PersonalInfo = ({
         <label htmlFor="fname" className="personal-info">
           <div className="label-header">
             <span>Name</span>
-            {nameRef.current?.value === "" ? (
+            {isEmpty && nameField === "" ? (
               <span className="error-message">This field is required</span>
             ) : (
               ""
@@ -39,20 +38,20 @@ const PersonalInfo = ({
             id="fname"
             style={{
               outline:
-                nameRef.current?.value === ""
+              isEmpty && nameField  === ""
                   ? "1px solid hsl(354, 84%, 57%)"
                   : "none",
             }}
             placeholder="e.g. Stephen King"
-            ref={nameRef}
-            onChange={() => handleDataInput({ target: nameRef.current })}
+          value={nameField}
+            onChange={handleDataName}
           />
         </label>
 
         <label htmlFor="e-mail" className="personal-info">
           <div className="label-header">
             <span>Email Address</span>
-            {mailRef.current?.value === "" ? (
+            {isEmpty && emailField === "" ? (
               <span className="error-message">This field is required</span>
             ) : (
               ""
@@ -63,20 +62,20 @@ const PersonalInfo = ({
             name="emailField"
             style={{
               outline:
-                mailRef.current?.value === ""
+              isEmpty && emailField === ""
                   ? "1px solid hsl(354, 84%, 57%)"
                   : "none",
             }}
             id="e-mail"
             placeholder="e.g stephenking@lorem.com"
-            ref={mailRef}
-            onChange={() => handleDataInput({ target: mailRef.current })}
+            value={emailField}
+            onChange={handleDataMail}
           />
         </label>
         <label htmlFor="phonenum" className="personal-info">
           <div className="label-header">
             <span>Phone Number</span>
-            {phoneRef.current?.value === "" ? (
+            {isEmpty && phoneField === "" ? (
               <span className="error-message">This field is required</span>
             ) : (
               ""
@@ -87,14 +86,14 @@ const PersonalInfo = ({
             id="phonenum"
             style={{
               outline:
-                phoneRef.current?.value === ""
+              isEmpty && phoneField === ""
                   ? "1px solid hsl(354, 84%, 57%)"
                   : "none",
             }}
             name="phoneField"
+            value={phoneField}
             placeholder="e.g. +1 234 567 890"
-            ref={phoneRef}
-            onChange={() => handleDataInput({ target: phoneRef.current })}
+            onChange={handleDataPhone}
           />
         </label>
       </div>

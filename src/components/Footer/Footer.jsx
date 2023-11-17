@@ -22,7 +22,6 @@ const Footer = ({
       <button
         type="submit"
         className="next-btn"
-        // disabled={isDisabled}
         onClick={handleBtnClick}
       >
         Next Step

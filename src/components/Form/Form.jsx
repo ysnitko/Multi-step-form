@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import Footer from "../Footer/Footer";
 import PersonalInfo from "../PersonalInfo/PersonalInfo";
 import SelectPlan from "../SelectPlan/SelectPlan";
@@ -15,37 +15,33 @@ const Form = ({
   setNameField,
   setEmailField,
   setPhoneField,
+  isEmpty,
+  setIsEmpty
 }) => {
-  const nameRef = useRef("");
-  const mailRef = useRef("");
-  const phoneRef = useRef("");
+  const handleDataName = (event) => {
+    setNameField(event.target.value);
+  }
 
-  const handleDataInput = (event) => {
-    const targetField = event.target.name;
-    if (targetField === "fnameField") {
-      setNameField(nameRef.current.value);
-      console.log(nameField);
-    }
-    if (targetField === "emailField") {
-      setEmailField(mailRef.current.value);
-      console.log(emailField);
-    }
-    if (targetField === "phoneField") {
-      setPhoneField(phoneRef.current.value);
-      console.log(phoneField);
-    }
-  };
+  const handleDataMail = (event) => {
+    setEmailField(event.target.value);
+  }
+
+  const handleDataPhone = (event) => {
+    setPhoneField(event.target.value);
+  }
 
   const validateForm = () => {
     if (
-      nameRef.current.value === "" ||
-      mailRef.current.value === "" ||
-      phoneRef.current.value === ""
+      nameField=== "" ||
+      emailField=== "" ||
+      phoneField === ""
     ) {
+      setIsEmpty(true)
       setIsDisabled(true);
     } else {
       setIsDisabled(false);
       setStep(step + 1);
+      setIsEmpty(false)
     }
     console.log(isDisabled);
   };
@@ -53,24 +49,28 @@ const Form = ({
   const handleBtnClick = (event) => {
     event.preventDefault();
     validateForm();
+    console.log(isEmpty);
   };
 
   const handleBackBtn = () => {
+   setIsEmpty(false)
+   setIsDisabled(true);
     setStep(step - 1);
+    console.log(isEmpty);
   };
 
   return (
-    <form className="form-container" action="">
+    <form className="form-container" action="" onSubmit={handleBtnClick}>
       {step === 1 && (
         <PersonalInfo
           setStep={setStep}
           nameField={nameField}
           emailField={emailField}
           phoneField={phoneField}
-          mailRef={mailRef}
-          nameRef={nameRef}
-          phoneRef={phoneRef}
-          handleDataInput={handleDataInput}
+          handleDataName={handleDataName}
+          handleDataMail={handleDataMail}
+          handleDataPhone={handleDataPhone}
+          isEmpty={isEmpty}
         />
       )}
 
