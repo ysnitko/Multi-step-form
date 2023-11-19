@@ -59,6 +59,12 @@ h1 {
   color: hsl(231, 11%, 63%);
 }
 
+.plan-discount {
+  font-size: 12px;
+  font-weight: 500;
+  color: hsl(213, 96%, 18%);
+}
+
 .arcade {
   background: url(../../assets/images/icon-arcade.svg) no-repeat 15% 16%;
 }

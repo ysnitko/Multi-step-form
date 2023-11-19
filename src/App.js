@@ -4,7 +4,7 @@ import Form from './components/Form/Form';
 import './App.css';
 
 const App = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(2);
   const [isDisabled, setIsDisabled] = useState(false);
   const [nameField, setNameField] = useState('');
   const [emailField, setEmailField] = useState('');
