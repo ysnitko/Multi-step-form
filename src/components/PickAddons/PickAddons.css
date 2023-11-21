@@ -1,0 +1,84 @@
+.addons-form {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 92px 0px 92px;
+  gap: 42px;
+  margin-bottom: 90px;
+}
+
+h1 {
+  font-size: 32px;
+  color: hsl(213, 96%, 18%);
+}
+
+.addons-header {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+  gap: 10px;
+}
+
+.addons-requirements {
+  color: hsl(231, 11%, 63%);
+  font-weight: 00;
+  font-size: 17px;
+  letter-spacing: -0.5px;
+  opacity: 0.8;
+}
+
+.addons-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.addons-vatiant {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px;
+  border: 1px solid hsl(229, 24%, 87%);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.addons-vatiant:hover {
+  border: 1px solid hsl(213, 96%, 18%);
+}
+
+.addons-info {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.addons-select {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 100px;
+  outline: none;
+}
+
+.addons-info-header {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.addons-title {
+  font-size: 16px;
+  font-weight: 500;
+  color: hsl(213, 96%, 18%);
+}
+
+.addons-discription {
+  font-size: 16px;
+  color: hsl(231, 11%, 63%);
+}
+
+.addons-cost {
+  font-weight: 500;
+  color: hsl(243, 100%, 62%);
+}

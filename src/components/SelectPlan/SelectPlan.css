@@ -48,6 +48,10 @@ h1 {
   background-color: hsl(029, 0%, 100%);
 }
 
+.plan:focus {
+  background-color: hsl(231, 100%, 99%);
+}
+
 .plan-type {
   color: hsl(213, 96%, 18%);
   font-weight: 500;
@@ -60,7 +64,7 @@ h1 {
 }
 
 .plan-discount {
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 500;
   color: hsl(213, 96%, 18%);
 }

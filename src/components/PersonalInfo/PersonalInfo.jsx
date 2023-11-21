@@ -8,9 +8,8 @@ const PersonalInfo = ({
   phoneField,
   handleDataName,
   handleDataMail,
-  handleDataPhone, 
-  isEmpty
-  
+  handleDataPhone,
+  isEmpty,
 }) => {
   return (
     <div className="personal-info-form">
@@ -38,12 +37,12 @@ const PersonalInfo = ({
             id="fname"
             style={{
               outline:
-              isEmpty && nameField  === ""
+                isEmpty && nameField === ""
                   ? "1px solid hsl(354, 84%, 57%)"
                   : "none",
             }}
             placeholder="e.g. Stephen King"
-          value={nameField}
+            value={nameField}
             onChange={handleDataName}
           />
         </label>
@@ -62,7 +61,7 @@ const PersonalInfo = ({
             name="emailField"
             style={{
               outline:
-              isEmpty && emailField === ""
+                isEmpty && emailField === ""
                   ? "1px solid hsl(354, 84%, 57%)"
                   : "none",
             }}
@@ -86,7 +85,7 @@ const PersonalInfo = ({
             id="phonenum"
             style={{
               outline:
-              isEmpty && phoneField === ""
+                isEmpty && phoneField === ""
                   ? "1px solid hsl(354, 84%, 57%)"
                   : "none",
             }}

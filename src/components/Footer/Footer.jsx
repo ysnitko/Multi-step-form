@@ -19,13 +19,20 @@ const Footer = ({
         Go Back
       </button>
 
-      <button
-        type="submit"
-        className="next-btn"
-        onClick={handleBtnClick}
-      >
-        Next Step
-      </button>
+      {step === 4 ? (
+        <button
+          style={{ backgroundColor: "hsl(243, 100%, 62%)" }}
+          type="submit"
+          className="next-btn"
+          onClick={handleBtnClick}
+        >
+          Confirm
+        </button>
+      ) : (
+        <button type="submit" className="next-btn" onClick={handleBtnClick}>
+          Next Step
+        </button>
+      )}
     </div>
   );
 };
