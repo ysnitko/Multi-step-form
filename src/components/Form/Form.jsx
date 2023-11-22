@@ -22,6 +22,7 @@ const Form = ({
 }) => {
   const [plan, setPlan] = useState("monthly");
   const [checked, setChecked] = useState(false);
+  const [resultPlans, setResultPlans] = useState([]);
 
   const handleDataName = (event) => {
     setNameField(event.target.value);
