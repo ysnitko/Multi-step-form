@@ -1,22 +1,58 @@
 import React, { useState } from "react";
+import { addons } from "../../constants";
 
 import "./PickAddons.css";
 
-const PickAddons = ({ checked }) => {
+const PickAddons = ({ checked, addon, setAddon }) => {
   const [isSelectOnline, setIsSelectOnline] = useState(false);
   const [isSelectStorage, setIsSelectStorage] = useState(false);
   const [isSelectCustomization, setIsSelectCustomization] = useState(false);
+  const addonArray = [];
 
-  const handleSelectOnline = () => {
-    setIsSelectOnline(!isSelectOnline);
+  const addAddon = (item) => {
+    return addonArray.push(item);
   };
 
-  const handleSelectStorage = () => {
+  const delAddon = (id) => {
+    return addonArray.filter((item) => item.id !== id);
+  };
+
+  const handleSelectOnline = (id) => {
+    setIsSelectOnline(!isSelectOnline);
+
+    console.log(isSelectOnline);
+    if (isSelectOnline) {
+      addAddon(addons[0]);
+      setAddon(addonArray);
+      console.log(addon);
+    } else {
+      delAddon(id);
+      setAddon(addonArray);
+      console.log(addon);
+    }
+  };
+
+  const handleSelectStorage = (id) => {
     setIsSelectStorage(!isSelectStorage);
+
+    if (isSelectStorage) {
+      addonArray.push(addons[1]);
+      setAddon(addonArray);
+    } else {
+      addonArray.filter((item) => item.id !== id);
+      setAddon(addonArray);
+    }
+    console.log(addon);
+    return addon;
   };
 
   const handleSelectCustom = () => {
     setIsSelectCustomization(!isSelectCustomization);
+    if (isSelectCustomization) {
+      addon.push(addons[2]);
+    } else {
+      addon.splice(addons[2], 1);
+    }
   };
 
   return (
@@ -42,7 +78,8 @@ const PickAddons = ({ checked }) => {
               type="checkbox"
               name="online-service"
               id="online-service"
-              onChange={handleSelectOnline}
+              checked={isSelectOnline}
+              onChange={() => handleSelectOnline(1)}
             />
             <div className="addons-info-header">
               <span className="addons-title">Online service</span>
@@ -70,7 +107,8 @@ const PickAddons = ({ checked }) => {
               type="checkbox"
               name="large-storage"
               id="large-storage"
-              onChange={handleSelectStorage}
+              checked={isSelectStorage}
+              onChange={() => handleSelectStorage(2)}
             />
             <div className="addons-info-header">
               <span className="addons-title">Larger storage</span>
@@ -98,6 +136,7 @@ const PickAddons = ({ checked }) => {
               type="checkbox"
               name="custom-profile"
               id="custom-profile"
+              checked={isSelectCustomization}
               onChange={handleSelectCustom}
             />
             <div className="addons-info-header">

@@ -19,10 +19,11 @@ const Form = ({
   setPhoneField,
   isEmpty,
   setIsEmpty,
+  addon,
+  setAddon,
 }) => {
   const [plan, setPlan] = useState("monthly");
   const [checked, setChecked] = useState(false);
-  const [resultPlans, setResultPlans] = useState([]);
 
   const handleDataName = (event) => {
     setNameField(event.target.value);
@@ -85,7 +86,9 @@ const Form = ({
           setPlan={setPlan}
         />
       )}
-      {step === 3 && <PickAddons setStep={setStep} checked={checked} />}
+      {step === 3 && (
+        <PickAddons checked={checked} addon={addon} setAddon={setAddon} />
+      )}
       {step === 4 && <Summary />}
 
       <Footer
