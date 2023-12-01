@@ -89,7 +89,7 @@ const Form = ({
       {step === 3 && (
         <PickAddons checked={checked} addon={addon} setAddon={setAddon} />
       )}
-      {step === 4 && <Summary />}
+      {step === 4 && <Summary addon={addon}/>}
 
       <Footer
         handleBtnClick={handleBtnClick}

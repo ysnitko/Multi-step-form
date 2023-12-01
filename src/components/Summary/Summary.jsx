@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 
 import "./Summary.css";
 
-const Summary = ({}) => {
+const Summary = ({addon}) => {
   return (
     <div className="summary-form">
       <div className="summary-header">
@@ -25,10 +25,13 @@ const Summary = ({}) => {
           <span className="choosen-plan-cost">$9/mo</span>
         </div>
         <div className="choosen-addons">
-          <div className="added-addons">
-            <span className="addon-title">Addons -title</span>
-            <span className="choosen-addon-cost">+1/mo</span>
+          {addon.map((item) => {
+            return   <div className="added-addons">
+            <span className="addon-title">{item.title}</span>
+            <span className="choosen-addon-cost">{item.cost}</span>
           </div>
+          })}
+        
         </div>
       </div>
       <div className="total-cost-info">

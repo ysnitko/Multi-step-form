@@ -3,57 +3,49 @@ import { addons } from "../../constants";
 
 import "./PickAddons.css";
 
-const PickAddons = ({ checked, addon, setAddon }) => {
+const PickAddons = ({ checked, setAddon }) => {
   const [isSelectOnline, setIsSelectOnline] = useState(false);
   const [isSelectStorage, setIsSelectStorage] = useState(false);
   const [isSelectCustomization, setIsSelectCustomization] = useState(false);
-  const addonArray = [];
 
   const addAddon = (item) => {
-    return addonArray.push(item);
+    setAddon((prev) => [...prev, item])
   };
 
   const delAddon = (id) => {
-    return addonArray.filter((item) => item.id !== id);
+    setAddon((prev) => prev.filter((item) => item.id !== id))
   };
 
-  const handleSelectOnline = (id) => {
+  const handleSelectOnline = () => {
     setIsSelectOnline(!isSelectOnline);
 
-    console.log(isSelectOnline);
-    if (isSelectOnline) {
+    if (!isSelectOnline) {
       addAddon(addons[0]);
-      setAddon(addonArray);
-      console.log(addon);
     } else {
-      delAddon(id);
-      setAddon(addonArray);
-      console.log(addon);
+      delAddon(addons[0].id);
     }
   };
 
-  const handleSelectStorage = (id) => {
+  const handleSelectStorage = () => {
     setIsSelectStorage(!isSelectStorage);
 
-    if (isSelectStorage) {
-      addonArray.push(addons[1]);
-      setAddon(addonArray);
+    if (!isSelectStorage) {
+      addAddon(addons[1]);
     } else {
-      addonArray.filter((item) => item.id !== id);
-      setAddon(addonArray);
+      delAddon(addons[1].id);
     }
-    console.log(addon);
-    return addon;
   };
 
   const handleSelectCustom = () => {
     setIsSelectCustomization(!isSelectCustomization);
-    if (isSelectCustomization) {
-      addon.push(addons[2]);
+
+    if (!isSelectCustomization) {
+      addAddon(addons[2]);
     } else {
-      addon.splice(addons[2], 1);
+      delAddon(addons[2].id);
     }
   };
+
 
   return (
     <div className="addons-form">
