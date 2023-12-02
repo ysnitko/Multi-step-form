@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { addons } from "../../constants";
+import { useSelector } from "react-redux";
 
 import "./PickAddons.css";
 
@@ -7,6 +8,9 @@ const PickAddons = ({ checked, setAddon }) => {
   const [isSelectOnline, setIsSelectOnline] = useState(false);
   const [isSelectStorage, setIsSelectStorage] = useState(false);
   const [isSelectCustomization, setIsSelectCustomization] = useState(false);
+  const addon = useSelector(
+    (store) => store?.addonsReducer?.addon
+  );
 
   const addAddon = (item) => {
     setAddon((prev) => [...prev, item])

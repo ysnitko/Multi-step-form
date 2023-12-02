@@ -7,7 +7,7 @@ const SelectPlan = ({
   checked,
   setChecked,
   plan,
-  setPlan = { setPlan },
+  setPlan 
 }) => {
   useEffect(() => {
     setStep(2);
