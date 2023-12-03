@@ -1,8 +1,13 @@
 import React from "react";
+import {useSelector} from 'react-redux'
 
 import "./Summary.css";
 
-const Summary = ({addon}) => {
+const Summary = () => {
+    const addon = useSelector(
+    (store) => store?.addonsReducer?.addon
+  );
+
   return (
     <div className="summary-form">
       <div className="summary-header">
@@ -24,15 +29,15 @@ const Summary = ({addon}) => {
           </div>
           <span className="choosen-plan-cost">$9/mo</span>
         </div>
-        <div className="choosen-addons">
+        <ul className="choosen-addons">
           {addon.map((item) => {
-            return   <div className="added-addons">
+            return   <li className="added-addons" key={item.id}>
             <span className="addon-title">{item.title}</span>
             <span className="choosen-addon-cost">{item.cost}</span>
-          </div>
+          </li>
           })}
         
-        </div>
+        </ul>
       </div>
       <div className="total-cost-info">
         <span className="total-info">

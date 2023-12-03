@@ -1,52 +1,50 @@
-import React, { useState } from "react";
+import React from "react";
 import { addons } from "../../constants";
-import { useSelector } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
 import "./PickAddons.css";
+import {addAddonAC, removeAddonAC} from '../../redux/actions/addonsAC';
+import { changeAdAC_1, changeAdAC_2, changeAdAC_3 } from '../../redux/actions/changeAddonAC';
 
-const PickAddons = ({ checked, setAddon }) => {
-  const [isSelectOnline, setIsSelectOnline] = useState(false);
-  const [isSelectStorage, setIsSelectStorage] = useState(false);
-  const [isSelectCustomization, setIsSelectCustomization] = useState(false);
+const PickAddons = ({ checked }) => {
+  const dispatch = useDispatch();
   const addon = useSelector(
-    (store) => store?.addonsReducer?.addon
+(store) => store?.addonsReducer?.addon
   );
-
-  const addAddon = (item) => {
-    setAddon((prev) => [...prev, item])
-  };
-
-  const delAddon = (id) => {
-    setAddon((prev) => prev.filter((item) => item.id !== id))
-  };
+  const isSelectOnline =  useSelector((store) => store?.changeAddonsReducer?.isSelectOnline)
+  const isSelectStorage =  useSelector((store) => store?.changeAddonsReducer?.isSelectStorage)
+  const isSelectCustomization =  useSelector((store) => store?.changeAddonsReducer?.isSelectCustomization)
 
   const handleSelectOnline = () => {
-    setIsSelectOnline(!isSelectOnline);
-
+    dispatch(changeAdAC_1(!isSelectOnline));
     if (!isSelectOnline) {
-      addAddon(addons[0]);
+      dispatch(addAddonAC(addons[0]))
+      console.log(addon);
     } else {
-      delAddon(addons[0].id);
+      dispatch(removeAddonAC(addons[0].id))
+      console.log(addon);
     }
   };
 
   const handleSelectStorage = () => {
-    setIsSelectStorage(!isSelectStorage);
-
+    dispatch(changeAdAC_2(!isSelectStorage))
     if (!isSelectStorage) {
-      addAddon(addons[1]);
+      dispatch(addAddonAC(addons[1]))
+      console.log(addon);
+      
     } else {
-      delAddon(addons[1].id);
+      dispatch(removeAddonAC(addons[1].id))
+      console.log(addon);
     }
   };
 
   const handleSelectCustom = () => {
-    setIsSelectCustomization(!isSelectCustomization);
-
+    dispatch(changeAdAC_3(!isSelectCustomization))
     if (!isSelectCustomization) {
-      addAddon(addons[2]);
+      dispatch(addAddonAC(addons[2]))
+      console.log(addon);
     } else {
-      delAddon(addons[2].id);
+      dispatch(removeAddonAC(addons[2].id))
+      console.log(addon);
     }
   };
 
@@ -133,7 +131,7 @@ const PickAddons = ({ checked, setAddon }) => {
               name="custom-profile"
               id="custom-profile"
               checked={isSelectCustomization}
-              onChange={handleSelectCustom}
+              onChange={() => handleSelectCustom(3)}
             />
             <div className="addons-info-header">
               <span className="addons-title">Customixable Profile</span>
