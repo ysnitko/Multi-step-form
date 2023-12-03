@@ -108,3 +108,8 @@ h1 {
   font-weight: 700;
   color: hsl(243, 100%, 62%);
 }
+
+.choosen-addon-cost {
+  display: block;
+  font-size: 12px;
+}

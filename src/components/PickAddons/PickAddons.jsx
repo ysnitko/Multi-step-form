@@ -7,43 +7,18 @@ import { changeAdAC_1, changeAdAC_2, changeAdAC_3 } from '../../redux/actions/ch
 
 const PickAddons = ({ checked }) => {
   const dispatch = useDispatch();
-  const addon = useSelector(
-(store) => store?.addonsReducer?.addon
-  );
+  const addon = useSelector((store) => store?.addonsReducer?.addon);
   const isSelectOnline =  useSelector((store) => store?.changeAddonsReducer?.isSelectOnline)
   const isSelectStorage =  useSelector((store) => store?.changeAddonsReducer?.isSelectStorage)
   const isSelectCustomization =  useSelector((store) => store?.changeAddonsReducer?.isSelectCustomization)
 
-  const handleSelectOnline = () => {
-    dispatch(changeAdAC_1(!isSelectOnline));
-    if (!isSelectOnline) {
-      dispatch(addAddonAC(addons[0]))
+  const handleToggleAddon = (addonItem) => {
+    const isItemInAddon = addon.some(item => item.id === addonItem.id);
+    if (!isItemInAddon) {
+      dispatch(addAddonAC(addonItem));
       console.log(addon);
     } else {
-      dispatch(removeAddonAC(addons[0].id))
-      console.log(addon);
-    }
-  };
-
-  const handleSelectStorage = () => {
-    dispatch(changeAdAC_2(!isSelectStorage))
-    if (!isSelectStorage) {
-      dispatch(addAddonAC(addons[1]))
-      console.log(addon);
-      
-    } else {
-      dispatch(removeAddonAC(addons[1].id))
-      console.log(addon);
-    }
-  };
-
-  const handleSelectCustom = () => {
-    dispatch(changeAdAC_3(!isSelectCustomization))
-    if (!isSelectCustomization) {
-      dispatch(addAddonAC(addons[2]))
-      console.log(addon);
-    } else {
-      dispatch(removeAddonAC(addons[2].id))
+      dispatch(removeAddonAC(addonItem.id));
       console.log(addon);
     }
   };
@@ -72,8 +47,8 @@ const PickAddons = ({ checked }) => {
               type="checkbox"
               name="online-service"
               id="online-service"
-              checked={isSelectOnline}
-              onChange={() => handleSelectOnline(1)}
+              checked={addon.some(item => item.id === addons[0].id)}
+              onChange={() => handleToggleAddon(addons[0])}
             />
             <div className="addons-info-header">
               <span className="addons-title">Online service</span>
@@ -101,8 +76,8 @@ const PickAddons = ({ checked }) => {
               type="checkbox"
               name="large-storage"
               id="large-storage"
-              checked={isSelectStorage}
-              onChange={() => handleSelectStorage(2)}
+              checked={addon.some(item => item.id === addons[1].id)}
+              onChange={() => handleToggleAddon(addons[1])}
             />
             <div className="addons-info-header">
               <span className="addons-title">Larger storage</span>
@@ -130,8 +105,8 @@ const PickAddons = ({ checked }) => {
               type="checkbox"
               name="custom-profile"
               id="custom-profile"
-              checked={isSelectCustomization}
-              onChange={() => handleSelectCustom(3)}
+              checked={addon.some(item => item.id === addons[2].id)}
+              onChange={() => handleToggleAddon(addons[2])}
             />
             <div className="addons-info-header">
               <span className="addons-title">Customixable Profile</span>

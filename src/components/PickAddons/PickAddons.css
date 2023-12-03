@@ -82,3 +82,8 @@ h1 {
   font-weight: 500;
   color: hsl(243, 100%, 62%);
 }
+
+.choosen-addons {
+  list-style-type: none;
+  padding: 0;
+}

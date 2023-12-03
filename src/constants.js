@@ -9,25 +9,19 @@ export const addons = [
   {
     id: '1',
     title: 'Online service',
-    cost: '',
+    cost: '+1$/mo',
     requirements: 'Access to multiplayer games',
   },
   {
     id: '2',
     title: 'Larger storage',
-    cost: '',
+    cost: '+2$/mo',
     requirements: 'Extra 1TB of cloud save',
   },
   {
     id: '3',
     title: 'Custimixable Profile',
-    cost: '',
-    requirements: 'Custom theme on oyur profile',
-  },
-  {
-    id: '4',
-    title: 'examples',
-    cost: '',
+    cost: '+2$/mo',
     requirements: 'Custom theme on oyur profile',
   },
 ];

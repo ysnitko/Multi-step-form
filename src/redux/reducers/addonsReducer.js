@@ -7,9 +7,8 @@ const addonsReducer = (state = { addon: [] }, { type, payload }) => {
     case REMOVE_ADDON:
       return {
         ...state,
-        favoriteMoaddonvies: state.addon.filter((item) => item.id !== payload),
+        addon: state.addon.filter((item) => item.id !== payload),
       };
-
     default:
       return state;
   }

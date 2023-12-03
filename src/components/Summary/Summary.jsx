@@ -36,7 +36,6 @@ const Summary = () => {
             <span className="choosen-addon-cost">{item.cost}</span>
           </li>
           })}
-        
         </ul>
       </div>
       <div className="total-cost-info">

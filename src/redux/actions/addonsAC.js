@@ -7,9 +7,9 @@ export const addAddonAC = (addon) => {
   };
 };
 
-export const removeAddonAC = (addon) => {
+export const removeAddonAC = (id) => {
   return {
     type: REMOVE_ADDON,
-    payload: addon,
+    payload: id,
   };
 };
