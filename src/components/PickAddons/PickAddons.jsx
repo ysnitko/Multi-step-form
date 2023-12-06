@@ -3,7 +3,6 @@ import { addons } from "../../constants";
 import { useDispatch, useSelector } from "react-redux";
 import "./PickAddons.css";
 import {addAddonAC, removeAddonAC} from '../../redux/actions/addonsAC';
-import { changeAdAC_1, changeAdAC_2, changeAdAC_3 } from '../../redux/actions/changeAddonAC';
 
 const PickAddons = ({ checked }) => {
   const dispatch = useDispatch();

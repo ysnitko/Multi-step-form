@@ -6,7 +6,6 @@ const SelectPlan = ({
   setStep,
   checked,
   setChecked,
-  plan,
   setPlan 
 }) => {
   useEffect(() => {
@@ -17,6 +16,16 @@ const SelectPlan = ({
     setChecked(!checked);
   };
 
+  const handleSelectPlan = (selectPlan) => {
+    setPlan(prevState => ({
+      ...prevState,
+      selectPlan: selectPlan,
+      period: !checked ? 'Monthly': 'Yearly'
+    
+    }));
+  };
+
+
   return (
     <div className="selected-plan-form">
       <div className="selected-plan-header">
@@ -26,7 +35,7 @@ const SelectPlan = ({
         </p>
       </div>
       <div className="select-plan-section">
-        <button type="button" className="plan arcade">
+        <button type="button" className="plan arcade" onClick={() => {handleSelectPlan('Arcade')}}>
           <span className="plan-type">Arcade</span>
           {!checked ? (
             <span className="plan-cost">$9/mo</span>
@@ -37,10 +46,10 @@ const SelectPlan = ({
             </>
           )}
         </button>
-        <button type="button" className="plan advanced">
+        <button type="button" className="plan advanced" onClick={() => {handleSelectPlan('Advanced')}}>
           <span className="plan-type">Advanced</span>
           {!checked ? (
-            <span className="plan-cost">$9/mo</span>
+            <span className="plan-cost">$12/mo</span>
           ) : (
             <>
               <span className="plan-cost">120/yr</span>
@@ -48,10 +57,10 @@ const SelectPlan = ({
             </>
           )}
         </button>
-        <button type="button" className="plan pro">
+        <button type="button" className="plan pro" onClick={() => {handleSelectPlan('Pro')}}>
           <span className="plan-type">Pro</span>
           {!checked ? (
-            <span className="plan-cost">$9/mo</span>
+            <span className="plan-cost">$15/mo</span>
           ) : (
             <>
               <span className="plan-cost">150/yr</span>

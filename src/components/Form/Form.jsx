@@ -22,7 +22,9 @@ const Form = ({
   // addon,
   // setAddon,
 }) => {
-  const [plan, setPlan] = useState("monthly");
+  const [plan, setPlan] = useState({
+    selectPlan: '',
+  });
   const [checked, setChecked] = useState(false);
 
   const handleDataName = (event) => {
@@ -93,7 +95,8 @@ const Form = ({
         />
       )}
       {step === 4 && <Summary 
-      // addon={addon}
+      checked={checked}
+      plan={plan}
       />}
 
       <Footer
