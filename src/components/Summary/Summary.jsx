@@ -26,8 +26,6 @@ const Summary = ({plan, checked}) => {
   }
 }
 
-
-
 const programCost = getProgramCost(plan.selectPlan)
 
 console.log(plan.period);
