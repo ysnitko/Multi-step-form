@@ -63,8 +63,6 @@ const Form = ({
   const handleBtnClick = (event) => {
     event.preventDefault();
     validateForm();
-    
-  
   };
 
   const handleBackBtn = () => {
