@@ -3,7 +3,7 @@
   flex-direction: column;
   padding: 40px 92px 0px 92px;
   gap: 42px;
-  margin-bottom: 90px;
+  margin-bottom: 75px;
 }
 
 h1 {
@@ -76,6 +76,10 @@ h1 {
   color: hsl(213, 96%, 18%);
 }
 
+.choosen-addons {
+  margin: 0;
+}
+
 .added-addons {
   display: flex;
   flex-direction: row;
@@ -114,4 +118,8 @@ h1 {
   font-size: 14px;
   font-weight: 500;
   color: hsl(213, 96%, 18%);
+}
+
+.summary-info-container {
+  height: 230px;
 }

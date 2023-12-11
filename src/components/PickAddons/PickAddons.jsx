@@ -2,17 +2,23 @@ import React from "react";
 import { addons } from "../../constants";
 import { useDispatch, useSelector } from "react-redux";
 import "./PickAddons.css";
-import {addAddonAC, removeAddonAC} from '../../redux/actions/addonsAC';
+import { addAddonAC, removeAddonAC } from "../../redux/actions/addonsAC";
 
 const PickAddons = ({ checked }) => {
   const dispatch = useDispatch();
   const addon = useSelector((store) => store?.addonsReducer?.addon);
-  const isSelectOnline =  useSelector((store) => store?.changeAddonsReducer?.isSelectOnline)
-  const isSelectStorage =  useSelector((store) => store?.changeAddonsReducer?.isSelectStorage)
-  const isSelectCustomization =  useSelector((store) => store?.changeAddonsReducer?.isSelectCustomization)
+  const isSelectOnline = useSelector(
+    (store) => store?.changeAddonsReducer?.isSelectOnline
+  );
+  const isSelectStorage = useSelector(
+    (store) => store?.changeAddonsReducer?.isSelectStorage
+  );
+  const isSelectCustomization = useSelector(
+    (store) => store?.changeAddonsReducer?.isSelectCustomization
+  );
 
   const handleToggleAddon = (addonItem) => {
-    const isItemInAddon = addon.some(item => item.id === addonItem.id);
+    const isItemInAddon = addon.some((item) => item.id === addonItem.id);
     if (!isItemInAddon) {
       dispatch(addAddonAC(addonItem));
       console.log(addon);
@@ -21,7 +27,6 @@ const PickAddons = ({ checked }) => {
       console.log(addon);
     }
   };
-
 
   return (
     <div className="addons-form">
@@ -46,7 +51,7 @@ const PickAddons = ({ checked }) => {
               type="checkbox"
               name="online-service"
               id="online-service"
-              checked={addon.some(item => item.id === addons[0].id)}
+              checked={addon.some((item) => item.id === addons[0].id)}
               onChange={() => handleToggleAddon(addons[0])}
             />
             <div className="addons-info-header">
@@ -75,7 +80,7 @@ const PickAddons = ({ checked }) => {
               type="checkbox"
               name="large-storage"
               id="large-storage"
-              checked={addon.some(item => item.id === addons[1].id)}
+              checked={addon.some((item) => item.id === addons[1].id)}
               onChange={() => handleToggleAddon(addons[1])}
             />
             <div className="addons-info-header">
@@ -104,7 +109,7 @@ const PickAddons = ({ checked }) => {
               type="checkbox"
               name="custom-profile"
               id="custom-profile"
-              checked={addon.some(item => item.id === addons[2].id)}
+              checked={addon.some((item) => item.id === addons[2].id)}
               onChange={() => handleToggleAddon(addons[2])}
             />
             <div className="addons-info-header">

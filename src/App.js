@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import Sidebar from './components/Sidebar/Sidebar';
-import Form from './components/Form/Form';
-import './App.css';
+import React, { useState } from "react";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Form from "./components/Form/Form";
+import "./App.css";
 
 const App = () => {
   const [step, setStep] = useState(1);
   const [isDisabled, setIsDisabled] = useState(false);
-  const [nameField, setNameField] = useState('');
-  const [emailField, setEmailField] = useState('');
-  const [phoneField, setPhoneField] = useState('');
+  const [nameField, setNameField] = useState("");
+  const [emailField, setEmailField] = useState("");
+  const [phoneField, setPhoneField] = useState("");
   const [isEmpty, setIsEmpty] = useState(false);
 
   return (
@@ -27,8 +27,6 @@ const App = () => {
         setPhoneField={setPhoneField}
         isEmpty={isEmpty}
         setIsEmpty={setIsEmpty}
-        // addon={addon}
-        // setAddon={setAddon}
       />
     </div>
   );

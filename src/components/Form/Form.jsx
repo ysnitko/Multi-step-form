@@ -4,6 +4,7 @@ import PersonalInfo from "../PersonalInfo/PersonalInfo";
 import SelectPlan from "../SelectPlan/SelectPlan";
 import PickAddons from "../PickAddons/PickAddons";
 import Summary from "../Summary/Summary";
+import Gratitude from "../Gratitude/Gratitude";
 import "./Form.css";
 
 const Form = ({
@@ -19,11 +20,9 @@ const Form = ({
   setPhoneField,
   isEmpty,
   setIsEmpty,
-  // addon,
-  // setAddon,
 }) => {
   const [plan, setPlan] = useState({
-    selectPlan: '',
+    selectPlan: "",
   });
   const [checked, setChecked] = useState(false);
 
@@ -39,6 +38,17 @@ const Form = ({
     setPhoneField(event.target.value);
   };
 
+  // const handleChosenPlan = () => {
+  //   if (step === 2 && )  {
+  //     setIsDisabled(true);
+  //     console.log('test');
+  //   }
+  //    else {
+  //     setIsDisabled(false);
+  //    }
+     
+  // }
+
   const validateForm = () => {
     if (nameField === "" || emailField === "" || phoneField === "") {
       setIsEmpty(true);
@@ -48,20 +58,19 @@ const Form = ({
       setStep(step + 1);
       setIsEmpty(false);
     }
-    console.log(isDisabled);
   };
 
   const handleBtnClick = (event) => {
     event.preventDefault();
     validateForm();
-    console.log(isEmpty);
+    
+  
   };
 
   const handleBackBtn = () => {
     setIsEmpty(false);
     setIsDisabled(true);
     setStep(step - 1);
-    console.log(isEmpty);
   };
 
   return (
@@ -88,24 +97,21 @@ const Form = ({
           setPlan={setPlan}
         />
       )}
-      {step === 3 && (
-        <PickAddons checked={checked} 
-        // addon={addon} 
-        // setAddon={setAddon} 
+      {step === 3 && <PickAddons checked={checked} />}
+      {step === 4 && (
+        <Summary checked={checked} plan={plan} setStep={setStep} />
+      )}
+
+      {step === 5 && <Gratitude />}
+      {step < 5 && (
+        <Footer
+          handleBtnClick={handleBtnClick}
+          step={step}
+          setStep={setStep}
+          isDisabled={isDisabled}
+          handleBackBtn={handleBackBtn}
         />
       )}
-      {step === 4 && <Summary 
-      checked={checked}
-      plan={plan}
-      />}
-
-      <Footer
-        handleBtnClick={handleBtnClick}
-        step={step}
-        setStep={setStep}
-        isDisabled={isDisabled}
-        handleBackBtn={handleBackBtn}
-      />
     </form>
   );
 };

@@ -1,13 +1,7 @@
 import React from "react";
 import "./Footer.css";
 
-const Footer = ({
-  handleBtnClick,
-  step,
-  setStep,
-  isDisabled,
-  handleBackBtn,
-}) => {
+const Footer = ({ handleBtnClick, step, handleBackBtn }) => {
   return (
     <div className="footer">
       <button
