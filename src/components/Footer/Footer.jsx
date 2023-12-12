@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Footer.css";
 
 const Footer = ({ handleBtnClick, step, handleBackBtn }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
   return (
     <div className="footer">
       <button
@@ -15,10 +23,16 @@ const Footer = ({ handleBtnClick, step, handleBackBtn }) => {
 
       {step === 4 ? (
         <button
-          style={{ backgroundColor: "hsl(243, 100%, 62%)" }}
+          style={{
+            backgroundColor: isHovered
+              ? "hsl(228, 100%, 84%)"
+              : "hsl(243, 100%, 62%)",
+          }}
           type="submit"
           className="next-btn"
           onClick={handleBtnClick}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           Confirm
         </button>

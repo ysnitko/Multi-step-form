@@ -3,6 +3,11 @@ import { addons } from "../../constants";
 import { useDispatch, useSelector } from "react-redux";
 import "./PickAddons.css";
 import { addAddonAC, removeAddonAC } from "../../redux/actions/addonsAC";
+import {
+  changeAdAC_1,
+  changeAdAC_2,
+  changeAdAC_3,
+} from "../../redux/actions/changeAddonAC";
 
 const PickAddons = ({ checked }) => {
   const dispatch = useDispatch();
@@ -21,10 +26,26 @@ const PickAddons = ({ checked }) => {
     const isItemInAddon = addon.some((item) => item.id === addonItem.id);
     if (!isItemInAddon) {
       dispatch(addAddonAC(addonItem));
-      console.log(addon);
+      if (addonItem === addons[0]) {
+        dispatch(changeAdAC_1(true));
+      }
+      if (addonItem === addons[1]) {
+        dispatch(changeAdAC_2(true));
+      }
+      if (addonItem === addons[2]) {
+        dispatch(changeAdAC_3(true));
+      }
     } else {
       dispatch(removeAddonAC(addonItem.id));
-      console.log(addon);
+      if (addonItem === addons[0]) {
+        dispatch(changeAdAC_1(false));
+      }
+      if (addonItem === addons[1]) {
+        dispatch(changeAdAC_2(false));
+      }
+      if (addonItem === addons[2]) {
+        dispatch(changeAdAC_3(false));
+      }
     }
   };
 

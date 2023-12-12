@@ -1,9 +1,9 @@
 .addons-form {
   display: flex;
   flex-direction: column;
-  padding: 40px 92px 0px 92px;
+  padding: 10px 92px 0px 92px;
   gap: 42px;
-  margin-bottom: 90px;
+  margin-bottom: 68px;
 }
 
 h1 {

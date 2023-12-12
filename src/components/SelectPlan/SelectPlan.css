@@ -1,9 +1,9 @@
 .selected-plan-form {
   display: flex;
   flex-direction: column;
-  padding: 35px 92px 22px 92px;
+  padding: 10px 92px 22px 92px;
   gap: 42px;
-  margin-bottom: 110px;
+  margin-bottom: 85px;
 }
 
 h1 {

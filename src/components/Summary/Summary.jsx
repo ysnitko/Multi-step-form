@@ -76,34 +76,37 @@ const Summary = ({ plan, setStep }) => {
             )}
           </div>
           <ul className="choosen-addons">
-            {addon.map((item) => {
-              return (
-                <li className="added-addons" key={item.id}>
-                  <span className="addon-title">{item.title}</span>
-                  {plan.period === "Yearly" ? (
-                    <span className="choosen-addon-cost">
-                      ${item.cost_yr}/yr
-                    </span>
-                  ) : (
-                    <span className="choosen-addon-cost">
-                      ${item.cost_mo}/mo
-                    </span>
-                  )}
-                </li>
-              );
-            })}
+            {addon
+              .sort((a, b) => a.id - b.id)
+              .map((item) => {
+                return (
+                  <li className="added-addons" key={item.id}>
+                    <span className="addon-title">{item.title}</span>
+                    {plan.period === "Yearly" ? (
+                      <span className="choosen-addon-cost">
+                        ${item.cost_yr}/yr
+                      </span>
+                    ) : (
+                      <span className="choosen-addon-cost">
+                        ${item.cost_mo}/mo
+                      </span>
+                    )}
+                  </li>
+                );
+              })}
           </ul>
         </div>
-      </div>
-      <div className="total-cost-info">
-        <span className="total-info">
-          Total (per <span>Month)</span>
-        </span>
-        {plan.period === "Yearly" ? (
-          <span className="total-cost">${totslSum}/yr</span>
-        ) : (
-          <span className="total-cost">${totslSum}/mo</span>
-        )}
+        <div className="total-cost-info">
+          <span className="total-info">
+            Total (per{" "}
+            <span>{plan.period === "Yearly" ? "year" : "month"}</span>)
+          </span>
+          {plan.period === "Yearly" ? (
+            <span className="total-cost">${totslSum}/yr</span>
+          ) : (
+            <span className="total-cost">${totslSum}/mo</span>
+          )}
+        </div>
       </div>
     </div>
   );
