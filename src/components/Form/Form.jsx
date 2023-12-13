@@ -23,8 +23,11 @@ const Form = ({
 }) => {
   const [plan, setPlan] = useState({
     selectPlan: "",
+    period: "",
   });
   const [checked, setChecked] = useState(false);
+  const [validatePhoneNum, setValidatePhoneNum] = useState(false);
+  const [validateEmailAddress, setValidateEmailAddress] = useState(false);
 
   const handleDataName = (event) => {
     setNameField(event.target.value);
@@ -38,31 +41,41 @@ const Form = ({
     setPhoneField(event.target.value);
   };
 
-  // const handleChosenPlan = () => {
-  //   if (step === 2 && )  {
-  //     setIsDisabled(true);
-  //     console.log('test');
-  //   }
-  //    else {
-  //     setIsDisabled(false);
-  //    }
-     
-  // }
+  const validatePhone = (phone) => {
+    let regex = /^(?=.*\d)(?=.*\+).+$/;
+    return regex.test(phone);
+  };
+
+  const validateEmail = (email) => {
+    let regex = /^(?=.*\w)(?=.*\.)(?=.*@).+$/;
+    return regex.test(email);
+  };
+  const validatePhoneNumber = validatePhone(phoneField);
+  const validateMailAdress = validateEmail(emailField);
 
   const validateForm = () => {
     if (nameField === "" || emailField === "" || phoneField === "") {
       setIsEmpty(true);
       setIsDisabled(true);
+    } else if (!validatePhoneNumber) {
+      setIsDisabled(true);
+      setValidatePhoneNum(true);
+    } else if (!validateMailAdress) {
+      setIsDisabled(true);
+      setValidateEmailAddress(true);
     } else {
+      setIsEmpty(false);
+      setValidatePhoneNum(false);
+      setValidateEmailAddress(false);
       setIsDisabled(false);
       setStep(step + 1);
-      setIsEmpty(false);
     }
   };
 
   const handleBtnClick = (event) => {
     event.preventDefault();
     validateForm();
+    validatePhone(phoneField);
   };
 
   const handleBackBtn = () => {
@@ -83,6 +96,8 @@ const Form = ({
           handleDataMail={handleDataMail}
           handleDataPhone={handleDataPhone}
           isEmpty={isEmpty}
+          validatePhoneNum={validatePhoneNum}
+          validateEmailAddress={validateEmailAddress}
         />
       )}
 

@@ -10,6 +10,8 @@ const PersonalInfo = ({
   handleDataMail,
   handleDataPhone,
   isEmpty,
+  validatePhoneNum,
+  validateEmailAddress,
 }) => {
   return (
     <div className="personal-info-form">
@@ -43,6 +45,7 @@ const PersonalInfo = ({
             }}
             placeholder="e.g. Stephen King"
             value={nameField}
+            required
             onChange={handleDataName}
           />
         </label>
@@ -52,6 +55,11 @@ const PersonalInfo = ({
             <span>Email Address</span>
             {isEmpty && emailField === "" ? (
               <span className="error-message">This field is required</span>
+            ) : (
+              ""
+            )}
+            {validateEmailAddress && emailField !== "" ? (
+              <span className="error-message">Incorrect email address</span>
             ) : (
               ""
             )}
@@ -68,6 +76,7 @@ const PersonalInfo = ({
             id="e-mail"
             placeholder="e.g stephenking@lorem.com"
             value={emailField}
+            required
             onChange={handleDataMail}
           />
         </label>
@@ -76,6 +85,11 @@ const PersonalInfo = ({
             <span>Phone Number</span>
             {isEmpty && phoneField === "" ? (
               <span className="error-message">This field is required</span>
+            ) : (
+              ""
+            )}
+            {validatePhoneNum && phoneField !== "" ? (
+              <span className="error-message">Incorrect phone number</span>
             ) : (
               ""
             )}
@@ -91,6 +105,7 @@ const PersonalInfo = ({
             }}
             name="phoneField"
             value={phoneField}
+            required
             placeholder="e.g. +1 234 567 890"
             onChange={handleDataPhone}
           />

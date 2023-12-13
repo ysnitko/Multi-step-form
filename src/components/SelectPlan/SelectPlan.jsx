@@ -2,12 +2,7 @@ import React, { useEffect } from "react";
 
 import "./SelectPlan.css";
 
-const SelectPlan = ({
-  setStep,
-  checked,
-  setChecked,
-  setPlan 
-}) => {
+const SelectPlan = ({ setStep, checked, setChecked, setPlan }) => {
   useEffect(() => {
     setStep(2);
   }, [setStep]);
@@ -17,14 +12,12 @@ const SelectPlan = ({
   };
 
   const handleSelectPlan = (selectPlan) => {
-    setPlan(prevState => ({
+    setPlan((prevState) => ({
       ...prevState,
       selectPlan: selectPlan,
-      period: !checked ? 'Monthly': 'Yearly'
-    
+      period: !checked ? "Monthly" : "Yearly",
     }));
   };
-
 
   return (
     <div className="selected-plan-form">
@@ -35,7 +28,13 @@ const SelectPlan = ({
         </p>
       </div>
       <div className="select-plan-section">
-        <button type="button" className="plan arcade" onClick={() => {handleSelectPlan('Arcade')}}>
+        <button
+          type="button"
+          className="plan arcade"
+          onClick={() => {
+            handleSelectPlan("Arcade");
+          }}
+        >
           <span className="plan-type">Arcade</span>
           {!checked ? (
             <span className="plan-cost">$9/mo</span>
@@ -46,7 +45,13 @@ const SelectPlan = ({
             </>
           )}
         </button>
-        <button type="button" className="plan advanced" onClick={() => {handleSelectPlan('Advanced')}}>
+        <button
+          type="button"
+          className="plan advanced"
+          onClick={() => {
+            handleSelectPlan("Advanced");
+          }}
+        >
           <span className="plan-type">Advanced</span>
           {!checked ? (
             <span className="plan-cost">$12/mo</span>
@@ -57,7 +62,13 @@ const SelectPlan = ({
             </>
           )}
         </button>
-        <button type="button" className="plan pro" onClick={() => {handleSelectPlan('Pro')}}>
+        <button
+          type="button"
+          className="plan pro"
+          onClick={() => {
+            handleSelectPlan("Pro");
+          }}
+        >
           <span className="plan-type">Pro</span>
           {!checked ? (
             <span className="plan-cost">$15/mo</span>
