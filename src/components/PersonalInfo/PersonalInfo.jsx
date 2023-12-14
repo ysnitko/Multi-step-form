@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import "./PersonalInfo.css";
+import './PersonalInfo.css';
 
 const PersonalInfo = ({
   nameField,
@@ -10,15 +10,13 @@ const PersonalInfo = ({
   handleDataMail,
   handleDataPhone,
   isEmpty,
-  validatePhoneNum,
-  validateEmailAddress,
 }) => {
   return (
     <div className="personal-info-form">
       <div className="personal-info-header">
         <h1 className="title-chapter">Personal info</h1>
         <p className="personal-info-requirements">
-          Please provide your name, email addres, and phone number.
+          Please provide your name, email address, and phone number.
         </p>
       </div>
 
@@ -26,10 +24,10 @@ const PersonalInfo = ({
         <label htmlFor="fname" className="personal-info">
           <div className="label-header">
             <span>Name</span>
-            {isEmpty && nameField === "" ? (
+            {isEmpty && nameField === '' ? (
               <span className="error-message">This field is required</span>
             ) : (
-              ""
+              ''
             )}
           </div>
 
@@ -39,9 +37,9 @@ const PersonalInfo = ({
             id="fname"
             style={{
               outline:
-                isEmpty && nameField === ""
-                  ? "1px solid hsl(354, 84%, 57%)"
-                  : "none",
+                isEmpty && nameField === ''
+                  ? '1px solid hsl(354, 84%, 57%)'
+                  : 'none',
             }}
             placeholder="e.g. Stephen King"
             value={nameField}
@@ -53,15 +51,10 @@ const PersonalInfo = ({
         <label htmlFor="e-mail" className="personal-info">
           <div className="label-header">
             <span>Email Address</span>
-            {isEmpty && emailField === "" ? (
+            {isEmpty && emailField === '' ? (
               <span className="error-message">This field is required</span>
             ) : (
-              ""
-            )}
-            {validateEmailAddress && emailField !== "" ? (
-              <span className="error-message">Incorrect email address</span>
-            ) : (
-              ""
+              ''
             )}
           </div>
           <input
@@ -69,9 +62,9 @@ const PersonalInfo = ({
             name="emailField"
             style={{
               outline:
-                isEmpty && emailField === ""
-                  ? "1px solid hsl(354, 84%, 57%)"
-                  : "none",
+                isEmpty && emailField === ''
+                  ? '1px solid hsl(354, 84%, 57%)'
+                  : 'none',
             }}
             id="e-mail"
             placeholder="e.g stephenking@lorem.com"
@@ -83,25 +76,20 @@ const PersonalInfo = ({
         <label htmlFor="phonenum" className="personal-info">
           <div className="label-header">
             <span>Phone Number</span>
-            {isEmpty && phoneField === "" ? (
+            {isEmpty && phoneField === '' ? (
               <span className="error-message">This field is required</span>
             ) : (
-              ""
-            )}
-            {validatePhoneNum && phoneField !== "" ? (
-              <span className="error-message">Incorrect phone number</span>
-            ) : (
-              ""
+              ''
             )}
           </div>
           <input
-            type="tel"
+            type="number"
             id="phonenum"
             style={{
               outline:
-                isEmpty && phoneField === ""
-                  ? "1px solid hsl(354, 84%, 57%)"
-                  : "none",
+                isEmpty && phoneField === ''
+                  ? '1px solid hsl(354, 84%, 57%)'
+                  : 'none',
             }}
             name="phoneField"
             value={phoneField}

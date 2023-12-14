@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import Footer from "../Footer/Footer";
-import PersonalInfo from "../PersonalInfo/PersonalInfo";
-import SelectPlan from "../SelectPlan/SelectPlan";
-import PickAddons from "../PickAddons/PickAddons";
-import Summary from "../Summary/Summary";
-import Gratitude from "../Gratitude/Gratitude";
-import "./Form.css";
+import React, { useState } from 'react';
+import Footer from '../Footer/Footer';
+import PersonalInfo from '../PersonalInfo/PersonalInfo';
+import SelectPlan from '../SelectPlan/SelectPlan';
+import PickAddons from '../PickAddons/PickAddons';
+import Summary from '../Summary/Summary';
+import Gratitude from '../Gratitude/Gratitude';
+import './Form.css';
 
 const Form = ({
   setStep,
@@ -22,12 +22,10 @@ const Form = ({
   setIsEmpty,
 }) => {
   const [plan, setPlan] = useState({
-    selectPlan: "",
-    period: "",
+    selectPlan: '',
+    period: '',
   });
   const [checked, setChecked] = useState(false);
-  const [validatePhoneNum, setValidatePhoneNum] = useState(false);
-  const [validateEmailAddress, setValidateEmailAddress] = useState(false);
 
   const handleDataName = (event) => {
     setNameField(event.target.value);
@@ -41,32 +39,12 @@ const Form = ({
     setPhoneField(event.target.value);
   };
 
-  const validatePhone = (phone) => {
-    let regex = /^(?=.*\d)(?=.*\+).+$/;
-    return regex.test(phone);
-  };
-
-  const validateEmail = (email) => {
-    let regex = /^(?=.*\w)(?=.*\.)(?=.*@).+$/;
-    return regex.test(email);
-  };
-  const validatePhoneNumber = validatePhone(phoneField);
-  const validateMailAdress = validateEmail(emailField);
-
   const validateForm = () => {
-    if (nameField === "" || emailField === "" || phoneField === "") {
+    if (nameField === '' || emailField === '' || phoneField === '') {
       setIsEmpty(true);
       setIsDisabled(true);
-    } else if (!validatePhoneNumber) {
-      setIsDisabled(true);
-      setValidatePhoneNum(true);
-    } else if (!validateMailAdress) {
-      setIsDisabled(true);
-      setValidateEmailAddress(true);
     } else {
       setIsEmpty(false);
-      setValidatePhoneNum(false);
-      setValidateEmailAddress(false);
       setIsDisabled(false);
       setStep(step + 1);
     }
@@ -75,7 +53,6 @@ const Form = ({
   const handleBtnClick = (event) => {
     event.preventDefault();
     validateForm();
-    validatePhone(phoneField);
   };
 
   const handleBackBtn = () => {
@@ -96,8 +73,6 @@ const Form = ({
           handleDataMail={handleDataMail}
           handleDataPhone={handleDataPhone}
           isEmpty={isEmpty}
-          validatePhoneNum={validatePhoneNum}
-          validateEmailAddress={validateEmailAddress}
         />
       )}
 
