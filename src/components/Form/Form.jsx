@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import Footer from '../Footer/Footer';
-import PersonalInfo from '../PersonalInfo/PersonalInfo';
-import SelectPlan from '../SelectPlan/SelectPlan';
-import PickAddons from '../PickAddons/PickAddons';
-import Summary from '../Summary/Summary';
-import Gratitude from '../Gratitude/Gratitude';
-import './Form.css';
+import React, { useState } from "react";
+import Footer from "../Footer/Footer";
+import PersonalInfo from "../PersonalInfo/PersonalInfo";
+import SelectPlan from "../SelectPlan/SelectPlan";
+import PickAddons from "../PickAddons/PickAddons";
+import Summary from "../Summary/Summary";
+import Gratitude from "../Gratitude/Gratitude";
+import "./Form.css";
 
 const Form = ({
   setStep,
@@ -22,10 +22,27 @@ const Form = ({
   setIsEmpty,
 }) => {
   const [plan, setPlan] = useState({
-    selectPlan: '',
-    period: '',
+    selectPlan: "",
+    period: "",
   });
   const [checked, setChecked] = useState(false);
+
+  const [values, setValues] = useState({
+    username: "",
+    email: "",
+    phone: "",
+  });
+
+  const onChange = (event) => {
+    setValues({ ...values, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const data = new FormData(event.target);
+    setStep(step + 1);
+    console.log(Object.fromEntries(data.entries()));
+  };
 
   const handleDataName = (event) => {
     setNameField(event.target.value);
@@ -40,7 +57,7 @@ const Form = ({
   };
 
   const validateForm = () => {
-    if (nameField === '' || emailField === '' || phoneField === '') {
+    if (nameField === "" || emailField === "" || phoneField === "") {
       setIsEmpty(true);
       setIsDisabled(true);
     } else {
@@ -62,7 +79,7 @@ const Form = ({
   };
 
   return (
-    <form className="form-container" action="" onSubmit={handleBtnClick}>
+    <form className="form-container" onSubmit={handleSubmit}>
       {step === 1 && (
         <PersonalInfo
           setStep={setStep}
@@ -73,6 +90,8 @@ const Form = ({
           handleDataMail={handleDataMail}
           handleDataPhone={handleDataPhone}
           isEmpty={isEmpty}
+          values={values}
+          onChange={onChange}
         />
       )}
 

@@ -37,7 +37,10 @@ const Footer = ({ handleBtnClick, step, handleBackBtn }) => {
           Confirm
         </button>
       ) : (
-        <button type="submit" className="next-btn" onClick={handleBtnClick}>
+        <button
+          className="next-btn"
+          // onClick={handleBtnClick}
+        >
           Next Step
         </button>
       )}

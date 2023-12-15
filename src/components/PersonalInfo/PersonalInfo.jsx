@@ -1,5 +1,6 @@
 import React from 'react';
-
+import FormInput from '../FormInput/FormInput';
+import { inputs } from '../../constants';
 import './PersonalInfo.css';
 
 const PersonalInfo = ({
@@ -10,6 +11,8 @@ const PersonalInfo = ({
   handleDataMail,
   handleDataPhone,
   isEmpty,
+  values,
+  onChange,
 }) => {
   return (
     <div className="personal-info-form">
@@ -21,7 +24,7 @@ const PersonalInfo = ({
       </div>
 
       <div className="personal-info-inputs">
-        <label htmlFor="fname" className="personal-info">
+        {/* <label htmlFor="fname" className="personal-info">
           <div className="label-header">
             <span>Name</span>
             {isEmpty && nameField === '' ? (
@@ -97,7 +100,16 @@ const PersonalInfo = ({
             placeholder="e.g. +1 234 567 890"
             onChange={handleDataPhone}
           />
-        </label>
+        </label> */}
+        {inputs.map((input) => (
+          <FormInput
+            key={input.id}
+            {...input}
+            value={values[input.name]}
+            placeholder={input.placeholder}
+            onChange={onChange}
+          />
+        ))}
       </div>
     </div>
   );

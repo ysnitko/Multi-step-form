@@ -6,9 +6,9 @@ import "./App.css";
 const App = () => {
   const [step, setStep] = useState(1);
   const [isDisabled, setIsDisabled] = useState(false);
-  const [nameField, setNameField] = useState("");
-  const [emailField, setEmailField] = useState("");
-  const [phoneField, setPhoneField] = useState("");
+  // const [nameField, setNameField] = useState("");
+  // const [emailField, setEmailField] = useState("");
+  // const [phoneField, setPhoneField] = useState("");
   const [isEmpty, setIsEmpty] = useState(false);
 
   return (
@@ -19,12 +19,12 @@ const App = () => {
         step={step}
         setIsDisabled={setIsDisabled}
         isDisabled={isDisabled}
-        nameField={nameField}
-        emailField={emailField}
-        phoneField={phoneField}
-        setNameField={setNameField}
-        setEmailField={setEmailField}
-        setPhoneField={setPhoneField}
+        // nameField={nameField}
+        // emailField={emailField}
+        // phoneField={phoneField}
+        // setNameField={setNameField}
+        // setEmailField={setEmailField}
+        // setPhoneField={setPhoneField}
         isEmpty={isEmpty}
         setIsEmpty={setIsEmpty}
       />
