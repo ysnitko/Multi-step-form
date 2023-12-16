@@ -73,10 +73,11 @@ export const inputs = [
   {
     id: 3,
     name: 'phone',
-    type: 'phonenum',
-    placeholder: 'e.g. +1 234 567 890',
+    type: 'text',
+    placeholder: 'e.g. +1234567890',
     label: 'Phone Number',
     errorMessage: 'Incorrect phone number',
+    pattern: '^[+][0-9]{3,16}$',
     required: true,
   },
 ];

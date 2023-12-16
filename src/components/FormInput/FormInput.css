@@ -47,14 +47,12 @@ input {
 }
 
 .input-errormessage {
-  /* width: 100%; */
-  
   display: none;
   color: hsl(354, 84%, 57%);
   flex-shrink: 100;
 
 }
 
-.test:invalid ~ .input-errormessage   {
+.test:invalid[focused='true'] ~ .input-errormessage   {
   display: block;
 }
