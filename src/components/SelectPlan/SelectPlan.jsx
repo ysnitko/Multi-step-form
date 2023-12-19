@@ -1,12 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import "./SelectPlan.css";
 
-const SelectPlan = ({ setStep, checked, setChecked, setPlan }) => {
-  useEffect(() => {
-    setStep(2);
-  }, [setStep]);
-
+const SelectPlan = ({ checked, setChecked, setPlan }) => {
   const handleChangePlan = () => {
     setChecked(!checked);
   };

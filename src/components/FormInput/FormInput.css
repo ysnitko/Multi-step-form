@@ -34,7 +34,7 @@
   color: hsl(231, 11%, 63%);
 }
 
-input {
+.personal-info > input {
   width: 100%;
   order: 3;
   flex-shrink: 100;
@@ -50,9 +50,8 @@ input {
   display: none;
   color: hsl(354, 84%, 57%);
   flex-shrink: 100;
-
 }
 
-.test:invalid[focused='true'] ~ .input-errormessage   {
+.personal-data:invalid[focused="true"] ~ .input-errormessage {
   display: block;
 }

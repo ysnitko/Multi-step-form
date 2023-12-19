@@ -5,11 +5,7 @@ import "./App.css";
 
 const App = () => {
   const [step, setStep] = useState(1);
-  const [isDisabled, setIsDisabled] = useState(false);
-  // const [nameField, setNameField] = useState("");
-  // const [emailField, setEmailField] = useState("");
-  // const [phoneField, setPhoneField] = useState("");
-  const [isEmpty, setIsEmpty] = useState(false);
+  // const [isEmpty, setIsEmpty] = useState(false);
 
   return (
     <div className="main-container">
@@ -17,16 +13,8 @@ const App = () => {
       <Form
         setStep={setStep}
         step={step}
-        setIsDisabled={setIsDisabled}
-        isDisabled={isDisabled}
-        // nameField={nameField}
-        // emailField={emailField}
-        // phoneField={phoneField}
-        // setNameField={setNameField}
-        // setEmailField={setEmailField}
-        // setPhoneField={setPhoneField}
-        isEmpty={isEmpty}
-        setIsEmpty={setIsEmpty}
+        // isEmpty={isEmpty}
+        // setIsEmpty={setIsEmpty}
       />
     </div>
   );

@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import './FormInput.css';
+import React, { useState } from "react";
+import "./FormInput.css";
 
 const FormInput = (props) => {
   const { label, onChange, errorMessage, id, ...inpurProps } = props;
@@ -11,14 +11,12 @@ const FormInput = (props) => {
 
   return (
     <div className="personal-info">
-      {/* <div className="label-error"> */}
       <label htmlFor={inpurProps.name}>{label}</label>
-      {/* </div> */}
       <input
         {...inpurProps}
         onChange={onChange}
         onBlur={handleFocus}
-        className="test"
+        className="personal-data"
         focused={focused.toString()}
       />
       <span className="input-errormessage">{errorMessage}</span>

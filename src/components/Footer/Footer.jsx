@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Footer.css";
 
-const Footer = ({ handleBtnClick, step, handleBackBtn }) => {
+const Footer = ({ step, handleBackBtn }) => {
   const [isHovered, setIsHovered] = useState(false);
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -30,19 +30,13 @@ const Footer = ({ handleBtnClick, step, handleBackBtn }) => {
           }}
           type="submit"
           className="next-btn"
-          onClick={handleBtnClick}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
           Confirm
         </button>
       ) : (
-        <button
-          className="next-btn"
-          // onClick={handleBtnClick}
-        >
-          Next Step
-        </button>
+        <button className="next-btn">Next Step</button>
       )}
     </div>
   );

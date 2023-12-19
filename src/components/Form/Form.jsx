@@ -7,26 +7,12 @@ import Summary from "../Summary/Summary";
 import Gratitude from "../Gratitude/Gratitude";
 import "./Form.css";
 
-const Form = ({
-  setStep,
-  step,
-  isDisabled,
-  setIsDisabled,
-  nameField,
-  emailField,
-  phoneField,
-  setNameField,
-  setEmailField,
-  setPhoneField,
-  isEmpty,
-  setIsEmpty,
-}) => {
+const Form = ({ setStep, step }) => {
   const [plan, setPlan] = useState({
     selectPlan: "",
     period: "",
   });
   const [checked, setChecked] = useState(false);
-
   const [values, setValues] = useState({
     username: "",
     email: "",
@@ -39,62 +25,22 @@ const Form = ({
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const data = new FormData(event.target);
     setStep(step + 1);
+    const data = new FormData(event.target);
     console.log(Object.fromEntries(data.entries()));
-  };
-
-  const handleDataName = (event) => {
-    setNameField(event.target.value);
-  };
-
-  const handleDataMail = (event) => {
-    setEmailField(event.target.value);
-  };
-
-  const handleDataPhone = (event) => {
-    setPhoneField(event.target.value);
-  };
-
-  const validateForm = () => {
-    if (nameField === "" || emailField === "" || phoneField === "") {
-      setIsEmpty(true);
-      setIsDisabled(true);
-    } else {
-      setIsEmpty(false);
-      setIsDisabled(false);
-      setStep(step + 1);
-    }
   };
 
   const handleBtnClick = (event) => {
     event.preventDefault();
-    validateForm();
   };
 
   const handleBackBtn = () => {
-    setIsEmpty(false);
-    setIsDisabled(true);
     setStep(step - 1);
   };
 
   return (
     <form className="form-container" onSubmit={handleSubmit}>
-      {step === 1 && (
-        <PersonalInfo
-          setStep={setStep}
-          nameField={nameField}
-          emailField={emailField}
-          phoneField={phoneField}
-          handleDataName={handleDataName}
-          handleDataMail={handleDataMail}
-          handleDataPhone={handleDataPhone}
-          isEmpty={isEmpty}
-          values={values}
-          onChange={onChange}
-        />
-      )}
-
+      {step === 1 && <PersonalInfo values={values} onChange={onChange} />}
       {step === 2 && (
         <SelectPlan
           setStep={setStep}
@@ -115,8 +61,8 @@ const Form = ({
           handleBtnClick={handleBtnClick}
           step={step}
           setStep={setStep}
-          isDisabled={isDisabled}
           handleBackBtn={handleBackBtn}
+          handleSubmit={handleSubmit}
         />
       )}
     </form>
