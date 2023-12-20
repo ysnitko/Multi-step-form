@@ -31,3 +31,22 @@
   font-weight: 700;
   color: hsl(0, 0%, 100%);
 }
+
+@media screen and (min-width: 320px) and (max-width: 375px) {
+  .step {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 80px;
+  }
+
+  .step-label {
+    display: none;
+  }
+
+  .step-indicator {
+    width: 100%;
+    padding: 0px 11px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+}

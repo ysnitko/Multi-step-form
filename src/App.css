@@ -27,3 +27,13 @@ body {
   align-items: stretch;
   background-color: hsl(0, 0%, 100%);
 }
+
+@media screen and (min-width: 320px) and (max-width: 375px) {
+  .main-container {
+    height: 100dvh;
+    grid-template-columns: auto;
+    grid-template-rows: auto 1fr;
+    padding: 0;
+    background-color: hsl(217, 100%, 97%);
+  }
+}

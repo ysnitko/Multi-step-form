@@ -55,3 +55,22 @@
 .personal-data:invalid[focused="true"] ~ .input-errormessage {
   display: block;
 }
+
+@media screen and (min-width: 320px) and (max-width: 375px) {
+  .personal-info > label {
+    font-size: 14px;
+  }
+
+  .personal-info > input {
+    padding: 10px;
+    border-radius: 3px;
+  }
+
+  .personal-info-inputs {
+    gap: 10px;
+  }
+
+  .input-errormessage {
+    font-size: 14px;
+  }
+}

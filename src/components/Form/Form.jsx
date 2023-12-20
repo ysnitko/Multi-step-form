@@ -39,33 +39,35 @@ const Form = ({ setStep, step }) => {
   };
 
   return (
-    <form className="form-container" onSubmit={handleSubmit}>
-      {step === 1 && <PersonalInfo values={values} onChange={onChange} />}
-      {step === 2 && (
-        <SelectPlan
-          setStep={setStep}
-          checked={checked}
-          setChecked={setChecked}
-          plan={plan}
-          setPlan={setPlan}
-        />
-      )}
-      {step === 3 && <PickAddons checked={checked} />}
-      {step === 4 && (
-        <Summary checked={checked} plan={plan} setStep={setStep} />
-      )}
+    <>
+      <form className="form-container" onSubmit={handleSubmit}>
+        {step === 1 && <PersonalInfo values={values} onChange={onChange} />}
+        {step === 2 && (
+          <SelectPlan
+            setStep={setStep}
+            checked={checked}
+            setChecked={setChecked}
+            plan={plan}
+            setPlan={setPlan}
+          />
+        )}
+        {step === 3 && <PickAddons checked={checked} />}
+        {step === 4 && (
+          <Summary checked={checked} plan={plan} setStep={setStep} />
+        )}
 
-      {step === 5 && <Gratitude />}
-      {step < 5 && (
-        <Footer
-          handleBtnClick={handleBtnClick}
-          step={step}
-          setStep={setStep}
-          handleBackBtn={handleBackBtn}
-          handleSubmit={handleSubmit}
-        />
-      )}
-    </form>
+        {step === 5 && <Gratitude />}
+        {step < 5 && (
+          <Footer
+            handleBtnClick={handleBtnClick}
+            step={step}
+            setStep={setStep}
+            handleBackBtn={handleBackBtn}
+            handleSubmit={handleSubmit}
+          />
+        )}
+      </form>
+    </>
   );
 };
 

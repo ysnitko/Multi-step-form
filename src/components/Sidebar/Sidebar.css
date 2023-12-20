@@ -5,6 +5,19 @@
   padding: 35px 0 0 30px;
   border-radius: 10px;
   gap: 32px;
-  background: url(../../assets/images/bg-sidebar-desktop.svg) no-repeat
-    center;
+  background: url(../../assets/images/bg-sidebar-desktop.svg) no-repeat center;
+}
+
+@media screen and (min-width: 320px) and (max-width: 375px) {
+  .sidebar-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 174px;
+    gap: 18px;
+    padding: 0;
+    flex-direction: row;
+    background: url(../../assets/images/bg-sidebar-mobile.svg) no-repeat;
+    border-radius: 0;
+  }
 }

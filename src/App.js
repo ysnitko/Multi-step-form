@@ -5,17 +5,11 @@ import "./App.css";
 
 const App = () => {
   const [step, setStep] = useState(1);
-  // const [isEmpty, setIsEmpty] = useState(false);
 
   return (
     <div className="main-container">
       <Sidebar step={step} />
-      <Form
-        setStep={setStep}
-        step={step}
-        // isEmpty={isEmpty}
-        // setIsEmpty={setIsEmpty}
-      />
+      <Form setStep={setStep} step={step} />
     </div>
   );
 };
