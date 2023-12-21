@@ -185,10 +185,11 @@ input:checked + .slider:before {
   .select-plan-section {
     display: grid;
     width: 100%;
+
     grid-template-columns: auto;
-    grid-template-rows: repeat(3, 1fr);
-    justify-content: space-between;
-    align-items: center;
+    /* grid-template-rows: repeat(3, 1fr); */
+    justify-content: start;
+    align-items: start;
     gap: 12px;
     margin-top: 10px;
   }
@@ -213,6 +214,10 @@ input:checked + .slider:before {
   }
 
   .switch-plan-period {
-    margin-top: 10px;
+    margin-top: 18px;
+  }
+
+  .period-yearly {
+    top: 45%;
   }
 }

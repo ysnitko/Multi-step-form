@@ -15,8 +15,16 @@ const SelectPlan = ({ checked, setChecked, setPlan }) => {
     }));
   };
 
+  const classPlan = () => {
+    if (checked) {
+      return "selected-plan-form period-yearly";
+    } else {
+      return "selected-plan-form";
+    }
+  };
+
   return (
-    <div className="selected-plan-form">
+    <div className={classPlan()}>
       <div className="selected-plan-header">
         <h1 className="title-chapter">Select your plan</h1>
         <p className="selected-plan-requirements">
