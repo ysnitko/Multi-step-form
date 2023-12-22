@@ -173,7 +173,7 @@ input:checked + .slider:before {
     width: 90%;
     padding: 34px 15px;
     position: absolute;
-    top: 42%;
+    top: 42.3%;
     left: 50%;
     transform: translate(-50%, -50%);
     gap: 10px;
@@ -185,7 +185,6 @@ input:checked + .slider:before {
   .select-plan-section {
     display: grid;
     width: 100%;
-
     grid-template-columns: auto;
     /* grid-template-rows: repeat(3, 1fr); */
     justify-content: start;

@@ -51,7 +51,7 @@ h1 {
 
 .plan-title {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
   color: hsl(213, 96%, 18%);
 }
 
@@ -132,5 +132,40 @@ h1 {
   h1 {
     font-size: 24px;
     margin-top: 0;
+  }
+
+  .summary-form {
+    width: 90%;
+    padding: 34px 15px;
+    position: absolute;
+    top: 36.2%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    gap: 10px;
+    margin-bottom: 0;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 10px;
+  }
+
+  .plan-title {
+    font-size: 13px;
+  }
+
+  .choosen-plan-cost,
+  .choosen-addon-cost {
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .addon-title {
+    font-size: 13px;
+  }
+
+  .total-cost {
+    font-size: 16px;
+  }
+
+  .summary-info-container {
+    height: 240px;
   }
 }
