@@ -1,22 +1,22 @@
-import React, { useState } from "react";
-import Footer from "../Footer/Footer";
-import PersonalInfo from "../PersonalInfo/PersonalInfo";
-import SelectPlan from "../SelectPlan/SelectPlan";
-import PickAddons from "../PickAddons/PickAddons";
-import Summary from "../Summary/Summary";
-import Gratitude from "../Gratitude/Gratitude";
-import "./Form.css";
+import React, { useState } from 'react';
+import Footer from '../Footer/Footer';
+import PersonalInfo from '../PersonalInfo/PersonalInfo';
+import SelectPlan from '../SelectPlan/SelectPlan';
+import PickAddons from '../PickAddons/PickAddons';
+import Summary from '../Summary/Summary';
+import Gratitude from '../Gratitude/Gratitude';
+import './Form.css';
 
 const Form = ({ setStep, step }) => {
   const [plan, setPlan] = useState({
-    selectPlan: "",
-    period: "",
+    selectPlan: '',
+    period: '',
   });
   const [checked, setChecked] = useState(false);
   const [values, setValues] = useState({
-    username: "",
-    email: "",
-    phone: "",
+    username: '',
+    email: '',
+    phone: '',
   });
 
   const onChange = (event) => {
@@ -26,8 +26,6 @@ const Form = ({ setStep, step }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setStep(step + 1);
-    const data = new FormData(event.target);
-    console.log(Object.fromEntries(data.entries()));
   };
 
   const handleBtnClick = (event) => {
