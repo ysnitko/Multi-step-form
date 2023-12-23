@@ -15,7 +15,7 @@ h1 {
   .personal-info-form {
     width: 90%;
     padding: 34px 15px;
-    position: absolute;
+    position: fixed;
     top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
